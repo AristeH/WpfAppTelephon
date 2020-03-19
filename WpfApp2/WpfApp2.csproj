@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Catel.Core" Version="5.12.3" />
+    <PackageReference Include="Catel.Fody" Version="4.3.0" />
+    <PackageReference Include="Catel.MVVM" Version="5.12.3" />
+    <PackageReference Include="Catel.Serialization.Json" Version="5.12.3" />
+    <PackageReference Include="FirebirdSql.Data.FirebirdClient" Version="7.5.0" />
+    <PackageReference Include="linq2db.Firebird" Version="2.9.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DataModels\Telephon.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Telephon.generated.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DataModels\Telephon.generated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Telephon.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>
